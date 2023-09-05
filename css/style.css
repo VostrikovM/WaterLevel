@@ -1,0 +1,53 @@
+:root{
+    --completion: 50%;
+    --offset: 2vh;
+}
+
+body{
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    background: linear-gradient(#e66465, #9198e5);
+}
+
+input{
+    margin-top: 30px;
+}
+
+.indicator{
+    height: 50vh;
+    width: 50vh;
+    position: relative;
+    border-radius: 30%;
+    border: 4px double rgba(0, 0, 0, 0.568);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.425);
+}
+
+output{
+    z-index: 1;
+    font-family: monospace;
+    font-size: 10vh;
+    color:  #333;
+}
+
+.indicator::after{
+    display: block;
+    width: 130vh;
+    height: 130vh;
+    content: "";
+    background-color: #a4eafd71;
+    border-radius: 50vh;
+    position: absolute;
+    left: 50%;
+    top: calc(100% - var(--completion) + var(--offset));
+    translate: -50% 0;
+    animation: spin 15s linear infinite;
+}
+
+@keyframes spin {
+    100% {rotate: 360deg;}
+    }
